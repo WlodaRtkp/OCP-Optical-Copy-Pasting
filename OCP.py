@@ -12,7 +12,7 @@ from PyQt5.QtGui import QGuiApplication, QPixmap
 from PyQt5.QtCore import Qt, QTimer
 
 
-pytesseract.pytesseract.tesseract_cmd = r"C:\Users\franciszek.wlodarczy\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"
+pytesseract.pytesseract.tesseract_cmd = r"path to tesseract"
 
 
 class OCRApp(QWidget):
@@ -230,7 +230,7 @@ class OCRApp(QWidget):
                 except Exception as cleanup_error:
                     print(f"⚠️ Could not remove temp file {temp_file}: {cleanup_error}")
 
-        # Restore window properly
+       
         self.showNormal()
         self.activateWindow()
         self.raise_()
@@ -242,7 +242,7 @@ class OCRApp(QWidget):
             self.waiting_for_snip = False
             self.output_text.setText("[❗] Timeout: No new image found in clipboard. Did you cancel the snip?")
             self.label.setText("Choose an action:")
-            # Restore window properly
+           
             self.showNormal()
             self.activateWindow()
             self.raise_()
